@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - deploy
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "20"
+            - name: Ver archivos
+              run: ls
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+
+            - name: Copy files to main branch
+              run: |
+                  git checkout deploy
+                  mkdir temp_dist
+                  cp -r dist/. temp_dist
+                  git add temp_dist/*
+                  git commit -m "Auto deploy latest build"
+                  git push
