@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
 
         env:
-          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_USERNAME: ${{secrets.GIT_EMAIL}}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         steps:
         - name: Set up Git user
