@@ -29,7 +29,8 @@ jobs:
 
             - name: Build
               run: npm run build
-
+            - name: Ver archivos build
+              run: ls
             - name: Copy files to main branch
               run: |
                   git checkout deploy
