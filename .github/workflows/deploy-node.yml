@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
     push:
         branches:
-            - main
+            - deploy
 
 jobs:
     build:
@@ -27,7 +27,7 @@ jobs:
 
             - name: Copy files to main branch
               run: |
-                  git checkout main
+                  git checkout deploy
                   mkdir temp_dist
                   cp -r dist/. temp_dist
                   git add temp_dist/*
