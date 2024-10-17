@@ -1,36 +1,41 @@
 name: Build and Deploy
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+    - name: List files in current directory
+      run: find .
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "20"
-            - name: Ver archivos
-              run: |
-                    /bin/bash -c "ls"
-            - name: Install dependencies
-              run: npm install
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-            - name: Build
-              run: npm run build
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
 
-            - name: Copy files to main branch
-              run: |
-                  git checkout main
-                  mkdir temp_dist
-                  cp -r dist/. temp_dist
-                  git add temp_dist/*
-                  git commit -m "Auto deploy latest build"
-                  git push
+    - name: Change to project directory
+      run: cd special-octo-guacamole
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Copy files to main branch
+      run: |
+        cd ..
+        git checkout main
+        mkdir temp_dist
+        cp -r special-octo-guacamole/dist/. temp_dist
+        git add temp_dist/*
+        git commit -m "Auto deploy latest build"
+        git push
