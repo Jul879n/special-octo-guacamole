@@ -18,7 +18,8 @@ jobs:
               with:
                   node-version: "20"
             - name: Ver archivos
-              run: ls
+              run: |
+                    /bin/bash -c "ls"
             - name: Install dependencies
               run: npm install
 
