@@ -43,9 +43,8 @@ jobs:
               run: ls
             - name: Copy files to main branch
               run: |
+                  cd dist
                   git checkout deploy
-                  mkdir temp_dist
-                  cp -r dist/. temp_dist
-                  git add temp_dist/*
+                  git add .
                   git commit -m "Auto deploy latest build"
                   git push
