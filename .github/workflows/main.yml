@@ -43,8 +43,7 @@ jobs:
               run: ls
             - name: Copy files to main branch
               run: |
-                  cd dist
                   git checkout deploy
-                  git add .
-                  git commit -m "Auto deploy latest build"
-                  git push
+                  git add dist/*
+                  git commit -m "Agregando cambios para la funcionalidad X"
+                  git push origin deploy
