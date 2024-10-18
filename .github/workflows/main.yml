@@ -41,8 +41,9 @@ jobs:
               run: npm run build
             - name: Ver archivos build
               run: ls
-            - name: Copy files to main branch
+            - name: Copy files to Deploy branch
               run: |
+                  git branch
                   git checkout deploy
                   git add dist/*
                   git commit -m "Agregando cambios para la funcionalidad X"
