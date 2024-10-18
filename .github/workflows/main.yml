@@ -16,15 +16,11 @@ permissions:
 jobs:
     build:
         runs-on: ubuntu-latest
-
-        env:
-            GIT_USERNAME: ${{secrets.GIT_EMAIL}}
-            GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         steps:
             - name: Set up Git user
               run: |
-                  git config --global user.email "${{GIT_EMAIL}}"
-                  git config --global user.name "${{GIT_USERNAME}}"
+                  git config --global user.email jul.dev03@gmail.com
+                  git config --global user.name "Julián Araya"
             - name: Checkout code
               uses: actions/checkout@v2
 
