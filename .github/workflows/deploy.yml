@@ -33,3 +33,4 @@ jobs:
             commit_user_email: jul.dev03@gmail.com
             commit_author: Jul879n
             create_branch: true
+            disable_globbing: true
