@@ -29,7 +29,9 @@ jobs:
     steps: 
         
       - name: Entrar a dist
-        run: cd dist
+        run: |
+          cd ./dist
+          ls
         
       - name: subir sitio
         uses: stefanzweifel/git-auto-commit-action@v5
