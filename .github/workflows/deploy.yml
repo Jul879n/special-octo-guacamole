@@ -35,9 +35,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Entrar a dist
-        uses: |
-          cd dist
-          ls
+        uses: cd dist
       - name: subir sitio
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
