@@ -26,6 +26,6 @@ jobs:
         run: npm run build
 
       - name: lista archivos
-        run: bash ls
+        run: ls
 
       # Aquí debes agregar los pasos para desplegar el sitio, como empujar los archivos generados a GitHub Pages
