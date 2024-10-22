@@ -1,6 +1,6 @@
 name: Despliegue sitio
 on:
-  pull_request:
+  push:
     branches: [main]
   workflow_dispatch:
 jobs:
@@ -30,7 +30,6 @@ jobs:
         
       - name: Entrar a dist
         run: |
-          cd ./dist
           ls
         
       - name: subir sitio
